@@ -1,0 +1,24 @@
+### Encrypt Endpoint Test
+# This request sends plaintext to the /encrypt endpoint and expects to receive
+# an encrypted version of the text along with the IV and key used for encryption.
+
+POST http://127.0.0.1:8000/encrypt/
+Content-Type: application/json
+
+{
+  "plaintext": "Hi there"
+}
+
+### Decrypt Endpoint Test
+# This request will need to be updated manually with the `ciphertext`, `iv`, and `key`
+# received from the Encrypt Endpoint Test response before sending.
+# It sends these back to the /decrypt endpoint to decrypt the ciphertext.
+
+POST http://127.0.0.1:8000/decrypt/
+Content-Type: application/json
+
+{
+  "ciphertext": "<CIPHERTEXT from encrypt response>",
+  "iv": "<IV from encrypt response>",
+  "key": "<KEY from encrypt response>"
+}
